@@ -32,10 +32,9 @@ public class AttendDBManager {
         return attend;
     }
 
-    public int attendLevelUP(Attend attend){
+    public boolean attendLevelUP(Attend attend){
         SQLiteDatabase sqLiteDatabase = attendDBHelper.getWritableDatabase();
         int result = 0;
-        int currentLevel = 0;
 
         if(attend.getStamp() == 1){
             ContentValues row = new ContentValues();
@@ -44,14 +43,13 @@ public class AttendDBManager {
             String whereClause = AttendDBHelper.COL_ATTEND_ID + "=?";
             String[] whereArgs = new String[] { String.valueOf(1)} ;
             result = sqLiteDatabase.update(AttendDBHelper.TABLE_ATTEND, row, whereClause, whereArgs);
-            currentLevel = attend.getLevel();
             attendDBHelper.close();
         }
         if(attend.getStamp() == 0){
-            currentLevel = attend.getLevel();
-            return -1;
+            return false;
         }
-        if(result > 0) return currentLevel + 1;
-        return 0;
+        if(result > 0) return true;
+        return true;
     }
+
 }
