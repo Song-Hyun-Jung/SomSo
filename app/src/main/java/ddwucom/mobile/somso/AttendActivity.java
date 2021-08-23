@@ -26,7 +26,11 @@ public class AttendActivity extends AppCompatActivity {
         attendInfo = attendDBManager.getAttendInfo();
 
         attendCharacter = (ImageView)findViewById(R.id.attendCharacter);
-        Glide.with(this).load(R.drawable.fightcorona).into(attendCharacter);
+
+        if(attendInfo.getLevel() % 30 == 0)
+            Glide.with(this).load(R.drawable.endcorona).into(attendCharacter);
+        else
+            Glide.with(this).load(R.drawable.fightcorona).into(attendCharacter);
 
         txtLV = (TextView)findViewById(R.id.txtLV);
         txtLV.setText("LV." + attendInfo.getLevel());
