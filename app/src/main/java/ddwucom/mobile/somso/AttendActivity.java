@@ -26,7 +26,7 @@ public class AttendActivity extends AppCompatActivity {
         attendInfo = attendDBManager.getAttendInfo();
 
         attendCharacter = (ImageView)findViewById(R.id.attendCharacter);
-        Glide.with(this).load(R.drawable.character).into(attendCharacter);
+        Glide.with(this).load(R.drawable.fightcorona).into(attendCharacter);
 
         txtLV = (TextView)findViewById(R.id.txtLV);
         txtLV.setText("LV." + attendInfo.getLevel());
@@ -49,8 +49,8 @@ public class AttendActivity extends AppCompatActivity {
                     Glide.with(this).load(R.drawable.fightcharacter).into(attendCharacter);
                 }
                 else{
-                    attendCharacter.setImageResource(R.drawable.character);
-                    Glide.with(this).load(R.drawable.character).into(attendCharacter);
+                    attendCharacter.setImageResource(R.drawable.fightcorona);
+                    Glide.with(this).load(R.drawable.fightcorona).into(attendCharacter);
                 }
                 break;
         }
