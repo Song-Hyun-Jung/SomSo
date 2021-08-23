@@ -44,9 +44,9 @@ public class AttendActivity extends AppCompatActivity {
                 txtLV.setText("LV." + presentLevel);
                 Log.d("레벨", String.valueOf(presentLevel));
                 if(presentLevel % 30 == 0) {
-                    Toast.makeText(this, "30달성 싸우기", Toast.LENGTH_SHORT).show();
-                    attendCharacter.setImageResource(R.drawable.fightcharacter);
-                    Glide.with(this).load(R.drawable.fightcharacter).into(attendCharacter);
+                   // Toast.makeText(this, "30달성 싸우기", Toast.LENGTH_SHORT).show();
+                    attendCharacter.setImageResource(R.drawable.endcorona);
+                    Glide.with(this).load(R.drawable.endcorona).into(attendCharacter);
                 }
                 else{
                     attendCharacter.setImageResource(R.drawable.fightcorona);
