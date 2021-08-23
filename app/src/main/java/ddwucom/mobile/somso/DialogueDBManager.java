@@ -1,5 +1,6 @@
 package ddwucom.mobile.somso;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -16,7 +17,7 @@ public class DialogueDBManager {
         ArrayList dialogues = new ArrayList();
 
         SQLiteDatabase db = dialogueDBHelper.getWritableDatabase();
-        cursor = db.rawQuery("SELECT * FROM " + DialogueDBHelper.TABLE_DIALOGUE, null);
+        cursor = db.rawQuery("SELECT * FROM " + DialogueDBHelper.TABLE_DIALOGUE + " WHERE " + DialogueDBHelper.COL_DIALOGUE_CHECK + " =" + 0, null);
 
         while(cursor.moveToNext()){
             long id = cursor.getInt(cursor.getColumnIndex(DialogueDBHelper.COL_DIALOGUE_ID));
@@ -34,5 +35,13 @@ public class DialogueDBManager {
         cursor.close();
         dialogueDBHelper.close();
         return dialogues;
+    }
+
+    public void initDialogueCheck(){
+        SQLiteDatabase db = dialogueDBHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DialogueDBHelper.COL_DIALOGUE_CHECK, 0);
+        db.update(DialogueDBHelper.TABLE_DIALOGUE, values, DialogueDBHelper.COL_DIALOGUE_CHECK + "=" + 1, null);
+        dialogueDBHelper.close();
     }
 }

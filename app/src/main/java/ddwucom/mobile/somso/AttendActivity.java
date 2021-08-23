@@ -28,7 +28,7 @@ public class AttendActivity extends AppCompatActivity {
         attendCharacter = (ImageView)findViewById(R.id.attendCharacter);
 
         if(attendInfo.getLevel() % 30 == 0)
-            Glide.with(this).load(R.drawable.endcorona).into(attendCharacter);
+            Glide.with(this).load(R.drawable.diecorona).into(attendCharacter);
         else
             Glide.with(this).load(R.drawable.fightcorona).into(attendCharacter);
 
@@ -49,8 +49,8 @@ public class AttendActivity extends AppCompatActivity {
                 Log.d("레벨", String.valueOf(presentLevel));
                 if(presentLevel % 30 == 0) {
                    // Toast.makeText(this, "30달성 싸우기", Toast.LENGTH_SHORT).show();
-                    attendCharacter.setImageResource(R.drawable.endcorona);
-                    Glide.with(this).load(R.drawable.endcorona).into(attendCharacter);
+                    attendCharacter.setImageResource(R.drawable.diecorona);
+                    Glide.with(this).load(R.drawable.diecorona).into(attendCharacter);
                 }
                 else{
                     attendCharacter.setImageResource(R.drawable.fightcorona);

@@ -26,6 +26,10 @@ public class DialogueActivity extends AppCompatActivity {
         dialogues = new ArrayList<>();
         dialogueDBManager = new DialogueDBManager(this);
         dialogues = dialogueDBManager.getAllDialogue();
+        if(dialogues.size() == 0) {
+            dialogueDBManager.initDialogueCheck();
+            dialogues = dialogueDBManager.getAllDialogue();
+        }
 
         ends = new ArrayList<>();
         endDBManager = new EndDBManager(this);
