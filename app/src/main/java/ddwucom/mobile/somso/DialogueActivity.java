@@ -116,6 +116,7 @@ public class DialogueActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, AttendActivity.class);
                 startActivity(intent);
                 finish();
+                break;
         }
     }
 }
