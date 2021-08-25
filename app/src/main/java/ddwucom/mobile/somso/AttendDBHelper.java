@@ -25,7 +25,7 @@ public class AttendDBHelper extends SQLiteOpenHelper {
         Log.d(TAG, sql_attend);
         db.execSQL(sql_attend);
 
-        db.execSQL("insert into " + TABLE_ATTEND + " values (null, 59, 1);"); //나중에 1로 바꿔야함
+        db.execSQL("insert into " + TABLE_ATTEND + " values (null, 1, 0);");
     }
 
     @Override
