@@ -44,4 +44,12 @@ public class DialogueDBManager {
         db.update(DialogueDBHelper.TABLE_DIALOGUE, values, DialogueDBHelper.COL_DIALOGUE_CHECK + "=" + 1, null);
         dialogueDBHelper.close();
     }
+
+    public void changeCheckDialogueSet(Dialogue dialogue){
+        SQLiteDatabase db = dialogueDBHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DialogueDBHelper.COL_DIALOGUE_CHECK, 1);
+        db.update(DialogueDBHelper.TABLE_DIALOGUE, values, DialogueDBHelper.COL_DIALOGUE_ID + "=" + dialogue._id, null);
+        dialogueDBHelper.close();
+    }
 }

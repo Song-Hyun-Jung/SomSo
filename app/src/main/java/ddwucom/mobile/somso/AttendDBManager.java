@@ -52,4 +52,10 @@ public class AttendDBManager {
         return true;
     }
 
+    public void addStamp(){
+        SQLiteDatabase sqLiteDatabase = attendDBHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(attendDBHelper.COL_ATTEND_STAMP, 1);
+        sqLiteDatabase.update(AttendDBHelper.TABLE_ATTEND, values, AttendDBHelper.COL_ATTEND_ID + "=" + 1, null);
+    }
 }

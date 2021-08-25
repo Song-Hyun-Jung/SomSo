@@ -1,5 +1,6 @@
 package ddwucom.mobile.somso;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,19 +22,28 @@ public class DialogueActivity extends AppCompatActivity {
     DialogueDBManager dialogueDBManager;
     ArrayList<String> ends = null;
     EndDBManager endDBManager;
+    AttendDBManager attendDBManager;
 
     ArrayList<String> giveChat = null;
+    Dialogue pickDialogue;
 
     EditText putAnswer;
     Button sendAnswer;
     TextView txtQuestion;
     int count = 0;
 
+    Button btn_goAttend;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dialogue);
+
+        //출석도장 db
+        attendDBManager = new AttendDBManager(this);
+        btn_goAttend = (Button)findViewById(R.id.btn_goAttend);
+        btn_goAttend.setVisibility(View.GONE);
 
         //대화 불러오기
         dialogues = new ArrayList<>();
@@ -50,7 +60,7 @@ public class DialogueActivity extends AppCompatActivity {
 
         //랜덤 세트 뽑기
         int pickSet = random.nextInt(dialogues.size());
-        Dialogue pickDialogue = dialogues.get(pickSet);
+        pickDialogue = dialogues.get(pickSet);
         int pickEnd = random.nextInt(ends.size());
         String pickEndDialogue = ends.get(pickEnd);
 
@@ -85,17 +95,27 @@ public class DialogueActivity extends AppCompatActivity {
     public void onClick(View v){
         switch(v.getId()){
             case R.id.sendAnswer:
-                if(putAnswer.getText().toString().equals("")){
-                    Toast.makeText(this, "대답해줘!", Toast.LENGTH_SHORT);
+                if(count >= 6){
+                    dialogueDBManager.changeCheckDialogueSet(pickDialogue);
+                    attendDBManager.addStamp();
+                    Log.d("대화", "db 변경 확인");
+                    btn_goAttend.setVisibility(View.VISIBLE);
                 }
-                else{
-                    count += 1;
-                    putAnswer.setText("");
-                    txtQuestion.setText(giveChat.get(count));
-                    Log.d("대화", String.valueOf(count));
+                else {
+                    if (putAnswer.getText().toString().equals("")) {
+                        Toast.makeText(this, "대답해줘!", Toast.LENGTH_SHORT);
+                    } else {
+                        count += 1;
+                        putAnswer.setText("");
+                        txtQuestion.setText(giveChat.get(count));
+                        Log.d("대화", String.valueOf(count));
+                    }
                 }
-                //count 7 되면 출석하러가기 버튼 생가게 stamp+1 dialogue db check 1로 바꿔야함.
                 break;
+            case R.id.btn_goAttend:
+                Intent intent = new Intent(this, AttendActivity.class);
+                startActivity(intent);
+                finish();
         }
     }
 }
