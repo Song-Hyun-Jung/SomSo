@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ddwucom.mobile.somso">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Somso"
+        android:windowSoftInputMode="adjustResize">
+        <activity android:name=".HelpActivity"></activity>
+        <activity android:name=".WashActivity" />
+        <activity android:name=".RuleIActivity" />
+        <activity android:name=".RuleSActivity" />
+        <activity android:name=".RuleGActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".DialogueActivity" />
+        <activity android:name=".AttendActivity" />
+    </application>
+
+</manifest>

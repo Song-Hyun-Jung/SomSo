@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="예방수칙">
+        <menu>
+            <item
+                android:id="@+id/pre_general"
+                android:title="일반수칙" />
+            <item
+                android:id="@+id/pre_sign"
+                android:title="유증상자" />
+            <item
+                android:id="@+id/pre_isolation"
+                android:title="자가격리대상자" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/wash"
+        android:title="올바른 손씻기" />
+    <item
+        android:id="@+id/help"
+        android:title="도움말" />
+    <item
+        android:id="@+id/exit"
+        android:title="앱 종료" />
+</menu>
