@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">somso</string>
+<<<<<<< HEAD
     <string name="help1">대화 후에 출석할 수 있어요.</string>
     <string name="help2">출석할 때 마다 레벨이 하나씩 올라가요.</string>
     <string name="help3">레벨이 30배수가 되면 코로나를 물리칠 수 있어요.</string>
+=======
+>>>>>>> cd290bc5df9e82f178f0de62599305a71c7887a9
 </resources>

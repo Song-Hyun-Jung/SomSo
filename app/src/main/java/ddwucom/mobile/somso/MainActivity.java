@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+<<<<<<< HEAD
 import android.view.Menu;
 import android.view.MenuItem;
+=======
+>>>>>>> cd290bc5df9e82f178f0de62599305a71c7887a9
 import android.view.View;
 
 import java.util.ArrayList;
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+<<<<<<< HEAD
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.option_menu, menu);
@@ -71,4 +75,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+=======
+>>>>>>> cd290bc5df9e82f178f0de62599305a71c7887a9
 }
